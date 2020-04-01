@@ -1,0 +1,11 @@
+.logo {
+  margin: 0px 10px;
+}
+
+li {
+  font-size: 17px;
+}
+
+a {
+  transition: 0.3s;
+}
