@@ -20,6 +20,12 @@
   text-decoration: line-through;
 }
 
+
+
 .is-done {
   color: green;
+}
+
+.done {
+  color: #cc2900;
 }

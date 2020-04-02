@@ -13,13 +13,18 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { httpInterceptorProviders } from "./auth/auth-interceptor";
 import { Router, Routes, RouterModule } from "@angular/router";
-import { TodosComponent } from './todos/todos.component';
-import { TodoTextFilterPipe } from './services/todo-text-filter.pipe';
+import { TodosComponent } from "./todos/todos.component";
+import { TodoTextFilterPipe } from "./services/todo-text-filter.pipe";
+import { FeedbackComponent } from "./feedback/feedback.component";
 
 const routes: Routes = [
   {
     path: "home",
     component: HomeComponent
+  },
+  {
+    path: "feedback",
+    component: FeedbackComponent
   },
   {
     path: "user",
@@ -58,7 +63,8 @@ const routes: Routes = [
     AdminComponent,
     NavComponent,
     TodosComponent,
-    TodoTextFilterPipe
+    TodoTextFilterPipe,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

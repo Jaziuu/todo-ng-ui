@@ -2,20 +2,10 @@
   <!-- Note menu -->
   <div class="row" style="margin-top:12px;">
     <div class="col-md-8">
-      <input
-        type="text"
-        [(ngModel)]="searchText"
-        class="form-control"
-        placeholder="Search Todos..."
-      />
+      <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search Todos..." />
     </div>
     <div class="col-md-4">
-      <button
-        type="buton"
-        (click)="addTodo()"
-        class="btn btn-info pull-right m-auto"
-        style="display: block;"
-      >
+      <button type="buton" (click)="addTodo()" class="btn btn-info pull-right m-auto" style="display: block;">
         <i class="fa fa-plus"></i> New Todo
       </button>
     </div>
@@ -23,36 +13,20 @@
 
   <!-- Todo List -->
   <div class="list-group list-group-flush">
-    <a
-      *ngFor="let todo of todos | todoTextFilter: searchText"
-      (click)="selectTodo(todo)"
-      class="list-group-item list-group-item-action"
-    >
+    <a *ngFor="let todo of todos | todoTextFilter: searchText" (click)="selectTodo(todo)"
+      class="list-group-item list-group-item-action">
       <i class="far fa-list-alt" style="margin-right: 10px;"></i>
-      <input
-        [ngClass]="{
+      <input [ngClass]="{
           'is-active': !todo.active
-        }"
-        [(ngModel)]="todo.text"
-        (change)="updateTodo(todo)"
-        type="text"
-        class="input-label"
-        style="width: 80%"
-      />
+        }" [(ngModel)]="todo.text" (change)="updateTodo(todo)" type="text" class="input-label" style="width: 80%" />
       <a (click)="deleteTodo(todo)" class="pull-right text-danger">
         <i class="fas fa-trash-alt"></i>
       </a>
-      <a
-        class="pull-right"
-        style="margin-left: 10px;"
-        (click)="changeActive(todo)"
-      >
-        <i
-          class="fas fa-check-circle"
-          [ngClass]="{
-            'is-done': !todo.active
-          }"
-        >
+      <a class="pull-right" style="margin-left: 10px;" (click)="changeActive(todo)">
+        <i class="fas fa-check-circle " [ngClass]="{
+            'is-done': !todo.active,
+            'done':todo.active
+          }">
         </i>
       </a>
     </a>
