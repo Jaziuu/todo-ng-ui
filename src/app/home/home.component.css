@@ -1,0 +1,12 @@
+img {
+  background-size: cover;
+  background-position: top;
+  opacity: 0.9;
+}
+
+.todo {
+  position: absolute;
+  top: 20vh;
+  left: 50vw;
+  transform: translate(-50%, 0%);
+}
