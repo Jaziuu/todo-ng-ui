@@ -29,14 +29,14 @@ export class TodosComponent implements OnInit {
           this.todos = res;
         },
         err => {
-          alert("Some error message");
+          alert("Couldn't get User Todos: ");
         }
       );
   }
 
   addTodo() {
     let newTodo: Todo = {
-      text: "New Notebook",
+      text: "Todo",
       id: null,
       active: true,
       userId: this.userId
@@ -78,5 +78,16 @@ export class TodosComponent implements OnInit {
 
   selectTodo(todo: Todo) {
     this.selectedTodo = todo;
+  }
+
+  changeActive(updatedTodo: Todo) {
+    updatedTodo.active = !updatedTodo.active;
+    console.log(updatedTodo.active);
+    this.http.post(this.APP_URL + "/update", updatedTodo).subscribe(
+      res => {},
+      err => {
+        alert("Some error message");
+      }
+    );
   }
 }

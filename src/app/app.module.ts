@@ -14,6 +14,7 @@ import { FormsModule } from "@angular/forms";
 import { httpInterceptorProviders } from "./auth/auth-interceptor";
 import { Router, Routes, RouterModule } from "@angular/router";
 import { TodosComponent } from './todos/todos.component';
+import { TodoTextFilterPipe } from './services/todo-text-filter.pipe';
 
 const routes: Routes = [
   {
@@ -56,7 +57,8 @@ const routes: Routes = [
     UserComponent,
     AdminComponent,
     NavComponent,
-    TodosComponent
+    TodosComponent,
+    TodoTextFilterPipe
   ],
   imports: [
     BrowserModule,
