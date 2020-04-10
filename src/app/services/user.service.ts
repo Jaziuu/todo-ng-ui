@@ -3,10 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class UserService {
-  private appUrl = "http://localhost:8081/api/todos/";
+  private appUrl = "https://todo-jwt-api.herokuapp.com/api/todos/";
 
   constructor(private http: HttpClient) {}
 

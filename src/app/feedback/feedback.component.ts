@@ -4,24 +4,24 @@ import { HttpClient } from "@angular/common/http";
 @Component({
   selector: "app-feedback",
   templateUrl: "./feedback.component.html",
-  styleUrls: ["./feedback.component.css"]
+  styleUrls: ["./feedback.component.css"],
 })
 export class FeedbackComponent implements OnInit {
   model: FeedbackViewModel = {
     name: "",
     email: "",
-    feedback: ""
+    feedback: "",
   };
-  APP_URL = "http://localhost:8081/api/feedback";
+  APP_URL = "https://todo-jwt-api.herokuapp.com/api/feedback";
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}
   sendFeedback(): void {
     this.http.post(this.APP_URL, this.model).subscribe(
-      res => {
+      (res) => {
         location.reload();
       },
-      err => {
+      (err) => {
         alert("An error has occurred while sending feedback");
       }
     );

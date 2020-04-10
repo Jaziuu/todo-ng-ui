@@ -6,14 +6,14 @@ import { Todo } from "./model/todo";
 @Component({
   selector: "app-todos",
   templateUrl: "./todos.component.html",
-  styleUrls: ["./todos.component.css"]
+  styleUrls: ["./todos.component.css"],
 })
 export class TodosComponent implements OnInit {
   userId: string;
   todos: Todo[] = [];
   selectedTodo: Todo;
   searchText: string;
-  APP_URL = "http://localhost:8081/api/todos";
+  APP_URL = "https://todo-jwt-api.herokuapp.com/api/todos";
   constructor(private token: TokenStorageService, private http: HttpClient) {}
 
   ngOnInit() {
@@ -25,10 +25,10 @@ export class TodosComponent implements OnInit {
     return this.http
       .get<Todo[]>(this.APP_URL + "/byUser/" + this.userId)
       .subscribe(
-        res => {
+        (res) => {
           this.todos = res;
         },
-        err => {
+        (err) => {
           alert("Couldn't get User Todos: ");
         }
       );
@@ -39,15 +39,15 @@ export class TodosComponent implements OnInit {
       text: "Todo",
       id: null,
       active: true,
-      userId: this.userId
+      userId: this.userId,
     };
 
     this.http.put<Todo>(this.APP_URL + "/add", newTodo).subscribe(
-      res => {
+      (res) => {
         newTodo.id = res.id;
         this.todos.push(newTodo);
       },
-      err => {
+      (err) => {
         alert("Some error message");
       }
     );
@@ -55,8 +55,8 @@ export class TodosComponent implements OnInit {
 
   updateTodo(updatedTodo: Todo) {
     this.http.post(this.APP_URL + "/update", updatedTodo).subscribe(
-      res => {},
-      err => {
+      (res) => {},
+      (err) => {
         alert("Some error message");
       }
     );
@@ -65,11 +65,11 @@ export class TodosComponent implements OnInit {
   deleteTodo(deletedTodo: Todo) {
     if (confirm("Are you sure u want to delete  Notebook?")) {
       this.http.delete(this.APP_URL + "/delete/" + deletedTodo.id).subscribe(
-        res => {
+        (res) => {
           let indexOfTodo = this.todos.indexOf(deletedTodo);
           this.todos.splice(indexOfTodo, 1);
         },
-        err => {
+        (err) => {
           alert("Some error message");
         }
       );
@@ -84,8 +84,8 @@ export class TodosComponent implements OnInit {
     updatedTodo.active = !updatedTodo.active;
     console.log(updatedTodo.active);
     this.http.post(this.APP_URL + "/update", updatedTodo).subscribe(
-      res => {},
-      err => {
+      (res) => {},
+      (err) => {
         alert("Some error message");
       }
     );

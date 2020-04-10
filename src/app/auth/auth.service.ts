@@ -7,15 +7,15 @@ import { AuthLoginInfo } from "./login-info";
 import { SignUpInfo } from "./signup-info";
 
 const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "application/json" })
+  headers: new HttpHeaders({ "Content-Type": "application/json" }),
 };
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class AuthService {
-  private loginUrl = "http://localhost:8081/api/auth/signin";
-  private signupUrl = "http://localhost:8081/api/auth/signup";
+  private loginUrl = "https://todo-jwt-api.herokuapp.com/api/auth/signin";
+  private signupUrl = "https://todo-jwt-api.herokuapp.com/api/auth/signup";
 
   constructor(private http: HttpClient) {}
 
