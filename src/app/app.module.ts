@@ -20,37 +20,41 @@ import { FeedbackComponent } from "./feedback/feedback.component";
 const routes: Routes = [
   {
     path: "home",
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: "feedback",
-    component: FeedbackComponent
+    component: FeedbackComponent,
   },
   {
     path: "user",
-    component: UserComponent
+    component: UserComponent,
   },
   {
     path: "admin",
-    component: AdminComponent
+    component: AdminComponent,
   },
   {
     path: "auth/login",
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: "signup",
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: "todos",
-    component: TodosComponent
+    component: TodosComponent,
   },
   {
     path: "",
     redirectTo: "home",
-    pathMatch: "full"
-  }
+    pathMatch: "full",
+  },
+  {
+    path: "**",
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({
@@ -64,15 +68,15 @@ const routes: Routes = [
     NavComponent,
     TodosComponent,
     TodoTextFilterPipe,
-    FeedbackComponent
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
