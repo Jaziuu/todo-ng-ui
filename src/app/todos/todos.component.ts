@@ -63,7 +63,7 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(deletedTodo: Todo) {
-    if (confirm("Are you sure u want to delete  Notebook?")) {
+    if (confirm("Are you sure u want to delete Todo?")) {
       this.http.delete(this.APP_URL + "/delete/" + deletedTodo.id).subscribe(
         (res) => {
           let indexOfTodo = this.todos.indexOf(deletedTodo);
